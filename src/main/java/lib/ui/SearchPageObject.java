@@ -16,7 +16,7 @@ public class SearchPageObject extends  MainPageObject {
     private static  final String SAVE_LIST = "//android.widget.FrameLayout[@content-desc=\"Сохранено\"]";
     private  static final String SAVE_LIST_IN_SAVED = "//android.view.ViewGroup[@resource-id=\"org.wikipedia:id/item_title_container\"]";
     private static final String SAVED_TITLE = "//android.view.ViewGroup[@resource-id=\"org.wikipedia:id/page_list_item_container\"]//*[@text='{SUBSTRING}']";
-
+    private static final String SAVED_TITLE_DELETE_OPTION = "//android.widget.TextView[@resource-id=\"org.wikipedia:id/title\" and @text=\"Удалить все из офлайн-режима\"]";
     public SearchPageObject(AppiumDriver driver) {
         super(driver);
     }
@@ -79,5 +79,9 @@ public class SearchPageObject extends  MainPageObject {
 
     public void goToSaveListInSavedAndGetOptions(){
         this.waitForElementAndLongPress(By.xpath(SAVE_LIST_IN_SAVED), "Невозможно отрыть сохраненное в сохраненном", 15);
+    }
+
+    public void deleteSavedTitle() {
+        this.waitForElementAndClick(By.xpath(SAVED_TITLE_DELETE_OPTION), "Невозможно удалить статью", 15);
     }
 }

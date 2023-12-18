@@ -19,10 +19,9 @@ public class FirstTest {
         return wait.until(ExpectedConditions.presenceOfElementLocated(by));
     }
 
-    private WebElement waitForElementAndClick(By by, String errorMessage, long timeoutInSeconds){
+    private void waitForElementAndClick(By by, String errorMessage, long timeoutInSeconds){
         WebElement element = waitForElementPresent(by, errorMessage, timeoutInSeconds);
         element.click();
-        return element;
     }
 
 

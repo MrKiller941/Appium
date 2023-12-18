@@ -21,17 +21,15 @@ public class SecondTest {
         return wait.until(ExpectedConditions.presenceOfElementLocated(by));
     }
 
-    private WebElement waitForElementAndClick(By by, String errorMessage, long timeoutInSeconds){
+    private void waitForElementAndClick(By by, String errorMessage, long timeoutInSeconds){
         WebElement element = waitForElementPresent(by, errorMessage, timeoutInSeconds);
         element.click();
-        return element;
     }
 
 
-    private WebElement waitForElementAndSendKeys(By by, String value, String errorMessage, long timeoutInSeconds){
+    private void waitForElementAndSendKeys(By by, String value, String errorMessage, long timeoutInSeconds){
         WebElement element = waitForElementPresent(by, errorMessage, timeoutInSeconds);
         element.sendKeys(value);
-        return element;
     }
 
 
@@ -61,6 +59,6 @@ public class SecondTest {
         waitForElementAndClick(By.xpath("//*[@resource-id='org.wikipedia:id/search_results_list']//*[@text='высшее учебное заведение в Кемерове']"),"Невозможно найти 'Кемеровский государственный университет'", 15);
         WebElement title_element = waitForElementPresent(By.xpath("//*[@text=\"Кемеровский государственный университет\"]"), "Невозможно найти 'Кемеровский государственный университет'", 15);
         String result = title_element.getText();
-        Assert.assertEquals("Найдено несовпадение статей по названию", "КемГУ", result);
+        Assert.assertEquals("Найдено несовпадение статей по названию", "Кемеровский государственный университет", result);
     }
 }

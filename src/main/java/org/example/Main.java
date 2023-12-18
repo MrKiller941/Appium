@@ -24,5 +24,6 @@ public class Main extends CoreTestCase {
         searchPageObject.goToBack();
         searchPageObject.goToSaveList();
         searchPageObject.goToSaveListInSavedAndGetOptions();
+        searchPageObject.deleteSavedTitle();
     }
 }
